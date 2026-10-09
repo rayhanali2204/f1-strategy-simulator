@@ -1,3 +1,5 @@
+import math
+
 def predict_lap_time(
     race_lap: int,
     tyre_age: int,
@@ -25,7 +27,7 @@ def simulate_stint(
 ) -> float:
 
     if start_lap < 1 or stint_length < 1:
-        raise ValueError("Start lap and string length must be positive")
+        raise ValueError("Start lap and stint length must be positive")
 
     total_time = 0.0
 
@@ -65,6 +67,11 @@ def simulate_strategy(
 
     if pit_loss < 0:
         raise ValueError("Pit loss cannot be negative")
+
+    parameters = base_paces + degradations + [fuel_effect, pit_loss]
+
+    if not all(math.isfinite(value) for value in parameters):
+        raise ValueError("Simulation parameters must be finite")
 
     total_time = 0.0
     start_lap = 1

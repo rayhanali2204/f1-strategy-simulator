@@ -3,7 +3,21 @@ import csv
 from pathlib import Path
 
 def run_experiment():
-    degradation_factors = [4.0, 4.02, 4.04, 4.05, 4.1, 4.5, 5.0]
+    race_laps = 53
+    fuel_effect = 0.04
+    pit_loss = 22.0
+
+    medium_base_pace = 94.0
+    hard_base_pace = 94.3
+
+    medium_baseline_degradation = 0.04
+    hard_baseline_degradation = 0.02
+    
+    degradation_factors = [
+        0.5, 1.0, 1.5, 2.0, 3.0,
+        4.0, 4.02, 4.04, 4.05, 4.1, 4.5, 5.0
+    ]
+    
     results = []
 
     for factor in degradation_factors:

@@ -116,7 +116,12 @@ if __name__ == "__main__":
     print(f"Two-stop time: {two_time:.2f} seconds")
 
     difference = abs(one_time - two_time)
-    winner = "One-stop" if one_time < two_time else "Two-stop"
+    if abs(one_time - two_time) < 1e-6:
+        winner = "Tie"
+    elif one_time < two_time:
+        winner = "One-stop"
+    else:
+        winner = "Two-stop"
 
     print(f"\nFastest strategy: {winner}")
     print(f"Advantage: {difference:.2f} seconds")

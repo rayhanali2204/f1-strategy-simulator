@@ -23,7 +23,12 @@ def run_experiment():
 
         advantage = two_time - one_time
 
-        winner = "ONE-STOP" if advantage > 0 else "TWO-STOP"
+        if abs(advantage) < 0.005:
+            winner = "TIE"
+        elif advantage > 0:
+            winner = "ONE-STOP"
+        else:
+            winner = "TWO-STOP"
 
         print(
             f"Pit loss: {pit_loss:5.2f}s | "

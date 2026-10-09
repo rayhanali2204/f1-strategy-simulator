@@ -80,3 +80,13 @@ def test_negative_pit_loss():
             pit_loss=-5.0,
         )
 
+def test_non_finite_parameters():
+    with pytest.raises(ValueError):
+        simulate_strategy(
+            stint_lengths=[10, 10],
+            base_paces=[90.0, float("nan")],
+            degradations=[0.04, 0.02],
+            fuel_effect=0.04,
+            pit_loss=22.0,
+        )
+
