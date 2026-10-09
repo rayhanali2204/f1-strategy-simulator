@@ -12,7 +12,7 @@ The project also explores real Formula 1 lap data using FastF1 and investigates 
 - Optimise one-stop and two-stop pit strategies using exhaustive search.
 - Investigate strategy sensitivity to pit-stop losses and tyre degradation.
 - Export experimental results to CSV and generate visualisations.
-- Validate core simulation and optimisation behaviour with 21 automated tests.
+- Validate core simulation and optimisation behaviour with 22 automated tests.
 
 ## Methodology
 
